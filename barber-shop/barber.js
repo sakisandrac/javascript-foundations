@@ -18,14 +18,26 @@ function cutHair(person, cut){
     return person
 }
 
+// function listStyles(person, style){
+//     let styles = [];
+//     for (i=0; i < person.knownCuts.length; i++){
+//         if(person.knownCuts[i].hairLength === style)
+//        styles.push(person.knownCuts[i].style);
+//     }
+//     return styles;
+// } 
+
 function listStyles(person, style){
-    let styles = [];
-    for (i=0; i < person.knownCuts.length; i++){
-        if(person.knownCuts[i].hairLength === style)
-       styles.push(person.knownCuts[i].style);
-    }
-    return styles;
-} 
+    let cuts = person.knownCuts
+    .filter((cut)=>{
+        if(cut.hairLength === style)
+        return cut
+    })
+    .map((cut)=>{
+        return cut.style
+    })
+    return cuts
+}
 
 module.exports = {  
     createBarber,
