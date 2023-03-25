@@ -38,13 +38,24 @@ function inquirePlace(locations, location){
   return `No, I have never been to ${location}.`
 }
 
+// function findBatLovers(vampires){
+//   let lovers = [];
+//  for(let i=0; i < vampires.length; i++){
+//   if(vampires[i].pet === 'bat')
+//     lovers.push(vampires[i].name)
+//  }
+//  return lovers;
+// }
+
 function findBatLovers(vampires){
-  let lovers = [];
- for(let i=0; i < vampires.length; i++){
-  if(vampires[i].pet === 'bat')
-    lovers.push(vampires[i].name)
- }
- return lovers;
+  let bats = vampires
+  .filter((vampire) => {
+    return vampire.pet === 'bat'
+  })
+  .map((vampire) => {
+      return vampire.name
+  })
+ return bats
 }
 
 module.exports = {
