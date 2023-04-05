@@ -55,7 +55,7 @@ function findBatLovers(vampires){
   .map((vampire) => {
       return vampire.name
   })
- return bats
+  return bats
 }
 
 module.exports = {

@@ -1,5 +1,5 @@
 function createAirport(name, airlines, gates){
-  let airport ={
+  let airport = {
     name: name,
     airlines: airlines,
     availableGates: gates,
@@ -22,26 +22,31 @@ function landPlanes(airport, gates){
   }
 
 // function checkAirlineLocations(airports, airline){
-//   let locations = [];
-//   for (let i=0; i < airports.length; i++){
-//     if (airports[i].airlines.includes(airline)){
-//       locations.push(airports[i].name)
+//   let locations = airports
+//   .filter((airport) => {
+//     if(airport.airlines.includes(airline)){
+//     return airport
 //     }
-//   } return locations
+//   })
+//   .map((airport)=>{
+//     return airport.name
+//   })
+//   return locations
 // }
 
-function checkAirlineLocations(airports, airline){
-  let locations = airports
-  .filter((airport) => {
-    if(airport.airlines.includes(airline)){
-    return airport
+  function checkAirlineLocations(airports, airlines){
+    let locations = [];
+    for (let i=0; i < airports.length; i++){
+      for (let j=0; j < airports[i].airlines.length; j++){
+        if (airports[i].airlines[j].includes(airlines)){
+          locations.push(airports[i].name)
+          
+        }
+      }
     }
-  })
-  .map((airport)=>{
-    return airport.name
-  })
-  return locations
-}
+    return locations
+  }
+
 module.exports = { 
   createAirport, 
   welcomeGuests, 
